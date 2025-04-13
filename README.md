@@ -1,17 +1,44 @@
-# mango_leaf_disease
+🍃 Mango Leaf Disease Detection App
+A mobile application powered by machine learning to detect and classify common diseases in mango leaves using camera input or gallery images.
 
-A new Flutter project.
+🔍 Features
+📸 Capture or upload mango leaf images
 
-## Getting Started
+🧠 ML model predicts leaf health (e.g., Anthracnose, Bacterial Canker, Powdery Mildew, Healthy)
 
-This project is a starting point for a Flutter application.
+📊 Instant results with confidence score
 
-A few resources to get you started if this is your first Flutter project:
+🌐 Offline support (optional)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+📁 Disease details, symptoms, and treatment suggestions
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# Mango_leaf_disease_detection_app
+🧾 Image history for tracking
+
+🛠 Tech Stack
+Flutter – Frontend UI
+
+TensorFlow Lite / PyTorch Mobile – ML Model
+
+Firebase / SQLite – Storage & analytics (optional)
+
+Python – For training the model
+
+🧪 Model Training
+ML model trained on a curated dataset of labeled mango leaf images with data augmentation and fine-tuning for mobile optimization.
+
+📦 Getting Started
+Clone the repo
+
+Install dependencies
+
+Add your TFLite model to assets/
+
+Run on emulator or device
+
+bash
+Copy
+Edit
+flutter pub get
+flutter run
+✅ Contribution
+Pull requests and suggestions are welcome! Please open issues for bugs or improvements.
