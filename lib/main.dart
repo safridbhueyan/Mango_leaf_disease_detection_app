@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         builder: (context, child) {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
-            title: 'Ovella',
+            title: 'Mango Leaf disease detector',
             home: HomeScreen(),
           );
         },
