@@ -18,7 +18,7 @@ class Utils {
 
   static Widget mybutton({required String text, void Function()? onTap}) {
     return GestureDetector(
-      onTap: () => onTap,
+      onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30.r),

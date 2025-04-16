@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mango_leaf_disease/model/rogModel.dart';
 import 'package:mango_leaf_disease/utils/utils.dart';
 import 'package:mango_leaf_disease/view/widget/appbar.dart';
 
@@ -8,28 +9,29 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var rog = Rogmodel();
     return Scaffold(
       backgroundColor: Color(0xffF1F1F1),
       appBar: appbar(),
-      body: Padding(
-        padding: EdgeInsets.only(left: 10.w, right: 10.w),
-        child: Column(
-          children: [
-            SizedBox(height: 12.h),
-            Align(
-              alignment: Alignment.center,
-              child: Text(
-                "সুস্থ পাতা, সুস্থ আম!",
-                style: TextStyle(
-                  fontSize: 17.sp,
-                  fontWeight: FontWeight.w700,
-                  color: Color(0xff000000),
-                ),
+      body: Column(
+        children: [
+          SizedBox(height: 12.h),
+          Align(
+            alignment: Alignment.center,
+            child: Text(
+              "সুস্থ পাতা, সুস্থ আম!",
+              style: TextStyle(
+                fontSize: 17.sp,
+                fontWeight: FontWeight.w700,
+                color: Color(0xff000000),
               ),
             ),
-            SizedBox(height: 14.h),
+          ),
+          SizedBox(height: 14.h),
 
-            Container(
+          Padding(
+            padding: EdgeInsets.only(left: 10.w, right: 10.w),
+            child: Container(
               height: 374.h,
               width: 400.w,
               decoration: BoxDecoration(
@@ -94,33 +96,36 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 35.h),
-            Align(
-              alignment: Alignment.centerLeft,
+          ),
+          SizedBox(height: 35.h),
+          Align(
+            alignment: Alignment.centerLeft,
 
-              child: Padding(
-                padding: EdgeInsets.only(left: 25.w),
-                child: Text(
-                  "রোগের তথ্য:",
-                  style: TextStyle(
-                    fontSize: 20.sp,
-                    fontWeight: FontWeight.w700,
-                    color: Color(0xFf000000),
-                  ),
+            child: Padding(
+              padding: EdgeInsets.only(left: 25.w),
+              child: Text(
+                "রোগের তথ্য:",
+                style: TextStyle(
+                  fontSize: 20.sp,
+                  fontWeight: FontWeight.w700,
+                  color: Color(0xFf000000),
                 ),
               ),
             ),
-            SizedBox(height: 20.h),
+          ),
+          SizedBox(height: 20.h),
 
-            SizedBox(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.width * 0.25,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: 5,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(8.0),
+          SizedBox(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.width * 0.25,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: rog.rog.length,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: GestureDetector(
+                    onTap: () {},
                     child: Container(
                       height: 88.h,
                       width: 88.w,
@@ -128,17 +133,17 @@ class HomeScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(100.r),
                         color: Color(0xff90EE90),
                       ),
-                      child: Center(child: Text("রোগ")),
+                      child: Center(child: Text(rog.rog[index])),
                     ),
-                  );
-                },
-              ),
+                  ),
+                );
+              },
             ),
+          ),
 
-            SizedBox(height: 20.h),
-            Image.asset("assets/icons/3dot.png", height: 7.h, width: 48.w),
-          ],
-        ),
+          SizedBox(height: 20.h),
+          Image.asset("assets/icons/3dot.png", height: 7.h, width: 48.w),
+        ],
       ),
     );
   }
