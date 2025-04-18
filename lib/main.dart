@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mango_leaf_disease/view/aboutUs_screen.dart';
 import 'package:mango_leaf_disease/view/login_screen.dart';
 import 'package:mango_leaf_disease/view_model/demo.dart';
 import 'package:provider/provider.dart';
@@ -32,6 +33,9 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             title: 'Mango Leaf disease detector',
             home: LoginScreen(),
+
+            // AboutusScreen(),
+            //  LoginScreen(),
             // HomeScreen(),
           );
         },
