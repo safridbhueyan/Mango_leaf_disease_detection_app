@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mango_leaf_disease/utils/utils.dart';
-import 'package:mango_leaf_disease/view/home_screen.dart';
 import 'package:mango_leaf_disease/view/login_screen.dart';
 import 'package:mango_leaf_disease/view/widget/inputdecoration.dart';
 

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mango_leaf_disease/model/rogModel.dart';
-import 'package:mango_leaf_disease/utils/utils.dart';
 import 'package:mango_leaf_disease/view/widget/appbar.dart';
 
 class AboutusScreen extends StatelessWidget {
