@@ -10,16 +10,22 @@ PreferredSizeWidget appbar() {
       child: Utils.logo(img: "assets/icons/logo.png"),
     ),
     actions: [
-      Padding(
-        padding: EdgeInsets.only(right: 15.w),
-        child: GestureDetector(
-          onTap: () {},
-          child: Image.asset(
-            "assets/icons/menu.png",
-            width: 48.w,
-            height: 30.h,
-          ),
-        ),
+      Builder(
+        builder: (context) {
+          return Padding(
+            padding: EdgeInsets.only(right: 15.w),
+            child: GestureDetector(
+              onTap: () {
+                Scaffold.of(context).openEndDrawer();
+              },
+              child: Image.asset(
+                "assets/icons/menu.png",
+                width: 48.w,
+                height: 30.h,
+              ),
+            ),
+          );
+        },
       ),
     ],
   );

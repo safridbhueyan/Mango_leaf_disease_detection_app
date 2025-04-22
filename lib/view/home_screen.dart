@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mango_leaf_disease/model/rogModel.dart';
 import 'package:mango_leaf_disease/utils/utils.dart';
 import 'package:mango_leaf_disease/view/widget/appbar.dart';
+import 'package:mango_leaf_disease/view/widget/customDrawer.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -13,6 +14,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0xffF1F1F1),
       appBar: appbar(),
+      endDrawer: Customdrawer(),
       body: Column(
         children: [
           SizedBox(height: 12.h),

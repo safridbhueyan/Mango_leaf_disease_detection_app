@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
+import 'package:mango_leaf_disease/routes/route_names.dart';
 import 'package:mango_leaf_disease/utils/utils.dart';
 import 'package:mango_leaf_disease/view/login_screen.dart';
 import 'package:mango_leaf_disease/view/widget/inputdecoration.dart';
@@ -143,14 +145,16 @@ class SignUpScreen extends StatelessWidget {
                   ),
 
                   SizedBox(height: 20.h),
-                  Utils.mybutton(text: "রেজিস্ট্রেশন", onTap: () {}),
+                  Utils.mybutton(
+                    text: "রেজিস্ট্রেশন",
+                    onTap: () {
+                      context.go(RouteName.LoginScreen);
+                    },
+                  ),
 
                   TextButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => LoginScreen()),
-                      );
+                      context.go(RouteName.LoginScreen);
                     },
                     child: Text(
                       "অথবা লগইন করুন",

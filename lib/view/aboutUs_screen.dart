@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mango_leaf_disease/view/widget/appbar.dart';
+import 'package:mango_leaf_disease/view/widget/customDrawer.dart';
 
 class AboutusScreen extends StatelessWidget {
   const AboutusScreen({super.key});
@@ -10,6 +11,7 @@ class AboutusScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0xffF1F1F1),
       appBar: appbar(),
+      endDrawer: Customdrawer(),
       body: Column(
         children: [
           SizedBox(height: 21.h),
