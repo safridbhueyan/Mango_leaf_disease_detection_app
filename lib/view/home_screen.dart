@@ -77,10 +77,12 @@ class HomeScreen extends StatelessWidget {
                         children: [
                           Utils.mybutton(
                             text: "ক্যামেরা",
-                            onTap: () {
+                            onTap: () async {
                               pick.cameraPick();
-                              Duration(milliseconds: 200);
-                              context.push(RouteName.PickimageScreen);
+                              await Future.delayed(Duration(seconds: 2));
+                              if (context.mounted) {
+                                context.push(RouteName.PickimageScreen);
+                              }
                             },
                           ),
                           SizedBox(width: 8.w),
@@ -96,9 +98,12 @@ class HomeScreen extends StatelessWidget {
 
                           Utils.mybutton(
                             text: "গ্যালারি",
-                            onTap: () {
+                            onTap: () async {
                               pick.galleryPick();
-                              context.push(RouteName.PickimageScreen);
+                              await Future.delayed(Duration(seconds: 2));
+                              if (context.mounted) {
+                                context.push(RouteName.PickimageScreen);
+                              }
                             },
                           ),
                         ],
