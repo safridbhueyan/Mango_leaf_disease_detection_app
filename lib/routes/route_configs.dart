@@ -5,6 +5,8 @@ import 'package:mango_leaf_disease/view/aboutUs_screen.dart';
 import 'package:mango_leaf_disease/view/disease_screen.dart';
 import 'package:mango_leaf_disease/view/home_screen.dart';
 import 'package:mango_leaf_disease/view/login_screen.dart';
+import 'package:mango_leaf_disease/view/pickImage_screen.dart';
+import 'package:mango_leaf_disease/view/profile_screen.dart';
 import 'package:mango_leaf_disease/view/sign_up_screen.dart';
 
 class RouteConfig {
@@ -45,6 +47,20 @@ class RouteConfig {
         path: RouteName.AboutusScreen,
         pageBuilder: (context, state) {
           return const MaterialPage(child: AboutusScreen());
+        },
+      ),
+      GoRoute(
+        name: RouteName.ProfileScreen,
+        path: RouteName.ProfileScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: ProfileScreen());
+        },
+      ),
+      GoRoute(
+        name: RouteName.PickimageScreen,
+        path: RouteName.PickimageScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: PickimageScreen());
         },
       ),
     ],

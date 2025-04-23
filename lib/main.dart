@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mango_leaf_disease/routes/route_configs.dart';
-import 'package:mango_leaf_disease/view/aboutUs_screen.dart';
-import 'package:mango_leaf_disease/view/disease_screen.dart';
-import 'package:mango_leaf_disease/view/login_screen.dart';
-import 'package:mango_leaf_disease/view_model/demo.dart';
+import 'package:mango_leaf_disease/view_model/imagePicker_provider.dart';
 import 'package:mango_leaf_disease/view_model/symtom_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -28,6 +25,9 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<SymtomProvider>(create: (_) => SymtomProvider()),
+        ChangeNotifierProvider<ImagepickerProvider>(
+          create: (_) => ImagepickerProvider(),
+        ),
       ],
       child: ScreenUtilInit(
         designSize: const Size(deviceWidth, deviceHeight),

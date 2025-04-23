@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mango_leaf_disease/routes/route_names.dart';
 import 'package:mango_leaf_disease/utils/utils.dart';
-import 'package:mango_leaf_disease/view/aboutUs_screen.dart';
 
 class Customdrawer extends StatelessWidget {
   const Customdrawer({super.key});
@@ -35,7 +34,23 @@ class Customdrawer extends StatelessWidget {
               context.pushNamed(RouteName.HomeScreen);
               Navigator.pop(context);
             },
-            child: Text("হোম"),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(26.r),
+                border: Border.all(width: 2, color: Colors.black54),
+              ),
+              child: Padding(
+                padding: EdgeInsets.all(10.0),
+                child: Text(
+                  "হোম",
+                  style: TextStyle(
+                    fontSize: 17.sp,
+                    fontWeight: FontWeight.w500,
+                    color: Color(0xff000000),
+                  ),
+                ),
+              ),
+            ),
           ),
           SizedBox(height: 20.h),
           GestureDetector(
@@ -43,17 +58,72 @@ class Customdrawer extends StatelessWidget {
               context.pushNamed(RouteName.DiseaseScreen);
               Navigator.pop(context);
             },
-            child: Text("রোগসমূহ"),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12.r),
+                border: Border.all(width: 2, color: Colors.black54),
+              ),
+              child: Padding(
+                padding: EdgeInsets.all(10.0),
+                child: Text(
+                  "রোগসমূহ",
+                  style: TextStyle(
+                    fontSize: 17.sp,
+                    fontWeight: FontWeight.w500,
+                    color: Color(0xff000000),
+                  ),
+                ),
+              ),
+            ),
           ),
           SizedBox(height: 20.h),
-          GestureDetector(onTap: () {}, child: Text("প্রোফাইল")),
+          GestureDetector(
+            onTap: () {
+              context.pushNamed(RouteName.ProfileScreen);
+              Navigator.pop(context);
+            },
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(26.r),
+                border: Border.all(width: 2, color: Colors.black54),
+              ),
+              child: Padding(
+                padding: EdgeInsets.all(10.0),
+                child: Text(
+                  "প্রোফাইল",
+                  style: TextStyle(
+                    fontSize: 17.sp,
+                    fontWeight: FontWeight.w500,
+                    color: Color(0xff000000),
+                  ),
+                ),
+              ),
+            ),
+          ),
           SizedBox(height: 20.h),
           GestureDetector(
             onTap: () {
               context.pushNamed(RouteName.AboutusScreen);
               Navigator.pop(context);
             },
-            child: Text("আমাদের সম্পর্কে"),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12.r),
+                border: Border.all(width: 2, color: Colors.black54),
+              ),
+              child: Padding(
+                padding: EdgeInsets.all(10.0),
+
+                child: Text(
+                  "আমাদের সম্পর্কে",
+                  style: TextStyle(
+                    fontSize: 17.sp,
+                    fontWeight: FontWeight.w500,
+                    color: Color(0xff000000),
+                  ),
+                ),
+              ),
+            ),
           ),
           Spacer(),
           GestureDetector(
@@ -61,7 +131,23 @@ class Customdrawer extends StatelessWidget {
               context.pushNamed(RouteName.LoginScreen);
               Navigator.pop(context);
             },
-            child: Text("লগআউট"),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(26.r),
+                border: Border.all(width: 2, color: Colors.black54),
+              ),
+              child: Padding(
+                padding: EdgeInsets.all(10.0),
+                child: Text(
+                  "লগআউট",
+                  style: TextStyle(
+                    fontSize: 17.sp,
+                    fontWeight: FontWeight.w500,
+                    color: Color(0xff000000),
+                  ),
+                ),
+              ),
+            ),
           ),
           SizedBox(height: 70.h),
         ],

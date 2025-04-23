@@ -3,8 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mango_leaf_disease/routes/route_names.dart';
 import 'package:mango_leaf_disease/utils/utils.dart';
-import 'package:mango_leaf_disease/view/home_screen.dart';
-import 'package:mango_leaf_disease/view/sign_up_screen.dart';
+
 import 'package:mango_leaf_disease/view/widget/inputdecoration.dart';
 
 class LoginScreen extends StatelessWidget {

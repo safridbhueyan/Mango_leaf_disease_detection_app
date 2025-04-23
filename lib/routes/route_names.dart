@@ -5,4 +5,6 @@ class RouteName {
   static const String HomeScreen = '/HomeScreen';
   static const String DiseaseScreen = '/DiseaseScreen';
   static const String AboutusScreen = '/AboutusScreen';
+  static const String ProfileScreen = '/ProfileScreen';
+  static const String PickimageScreen = '/PickimageScreen';
 }

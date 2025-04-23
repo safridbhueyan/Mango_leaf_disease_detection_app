@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:mango_leaf_disease/model/rogModel.dart';
+import 'package:mango_leaf_disease/routes/route_names.dart';
 import 'package:mango_leaf_disease/utils/utils.dart';
 import 'package:mango_leaf_disease/view/widget/appbar.dart';
 import 'package:mango_leaf_disease/view/widget/customDrawer.dart';
+import 'package:mango_leaf_disease/view_model/imagePicker_provider.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -66,23 +70,40 @@ class HomeScreen extends StatelessWidget {
                   ),
 
                   SizedBox(height: 31.h),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Utils.mybutton(text: "ক্যামেরা"),
-                      SizedBox(width: 8.w),
-                      Text(
-                        "অথবা",
-                        style: TextStyle(
-                          fontSize: 12.sp,
-                          fontWeight: FontWeight.w400,
-                          color: Color(0xFf000000),
-                        ),
-                      ),
-                      SizedBox(width: 8.w),
+                  Consumer<ImagepickerProvider>(
+                    builder: (context, pick, _) {
+                      return Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Utils.mybutton(
+                            text: "ক্যামেরা",
+                            onTap: () {
+                              pick.cameraPick();
+                              Duration(milliseconds: 200);
+                              context.push(RouteName.PickimageScreen);
+                            },
+                          ),
+                          SizedBox(width: 8.w),
+                          Text(
+                            "অথবা",
+                            style: TextStyle(
+                              fontSize: 12.sp,
+                              fontWeight: FontWeight.w400,
+                              color: Color(0xFf000000),
+                            ),
+                          ),
+                          SizedBox(width: 8.w),
 
-                      Utils.mybutton(text: "গ্যালারি"),
-                    ],
+                          Utils.mybutton(
+                            text: "গ্যালারি",
+                            onTap: () {
+                              pick.galleryPick();
+                              context.push(RouteName.PickimageScreen);
+                            },
+                          ),
+                        ],
+                      );
+                    },
                   ),
                   Spacer(),
                   Text(
