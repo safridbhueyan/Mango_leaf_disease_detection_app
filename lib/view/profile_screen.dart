@@ -139,12 +139,7 @@ class ProfileScreen extends StatelessWidget {
                   ),
                   Padding(
                     padding: EdgeInsets.only(left: 140.w, right: 140.w),
-                    child: Positioned(
-                      bottom: 0,
-                      left: 0,
-                      right: 0,
-                      child: Container(height: 4, color: Color(0xff90EE90)),
-                    ),
+                    child: Container(height: 4, color: Color(0xff90EE90)),
                   ),
                 ],
               ),
