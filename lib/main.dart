@@ -38,12 +38,7 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             title: 'Mango Leaf disease detector',
             routerConfig: RouteConfig().goRouter,
-            // home: DiseaseScreen(),
-            //  LoginScreen(),
-
-            // AboutusScreen(),
-            //  LoginScreen(),
-            // HomeScreen(),
+           
           );
         },
       ),

@@ -8,27 +8,31 @@ class ImagepickerProvider with ChangeNotifier {
 
   XFile? get pickedIamage => _pickedImage;
 
-  Future<void> galleryPick() async {
+  Future<bool> galleryPick() async {
     try {
       final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
       if (pickedFile != null) {
         _pickedImage = pickedFile;
         notifyListeners();
+        return true;
       }
     } catch (e) {
       debugPrint("Gallery pick error: $e");
     }
+    return false;
   }
 
-  Future<void> cameraPick() async {
+  Future<bool> cameraPick() async {
     try {
       final pickedFile = await _picker.pickImage(source: ImageSource.camera);
       if (pickedFile != null) {
         _pickedImage = pickedFile;
         notifyListeners();
+        return true;
       }
     } catch (e) {
-      debugPrint("camera pick error: $e");
+      debugPrint("Camera pick error: $e");
     }
+    return false;
   }
 }
