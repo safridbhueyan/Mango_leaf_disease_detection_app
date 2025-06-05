@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "630281570922",
+    "project_id": "mangoleafdisease",
+    "storage_bucket": "mangoleafdisease.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:630281570922:android:a0a547b9ffe31d14ac1813",
+        "android_client_info": {
+          "package_name": "com.example.mango_leaf_disease"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOxzBn1VtLRdGcvnGlUzeORGCtBFTwWw8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
