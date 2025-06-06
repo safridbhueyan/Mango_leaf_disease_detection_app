@@ -89,86 +89,90 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ],
               ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SizedBox(height: 35.h),
-                  Container(
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Color(0xffDEFFDE),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: Image.asset(
-                        "assets/images/logobig.png",
-                        height: 90.h,
-                        width: 90.w,
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 38.h),
-                  Text(
-                    "লগইন করুন",
-                    style: TextStyle(
-                      fontSize: 24.sp,
-                      fontWeight: FontWeight.w700,
-                      color: Color(0xff008000),
-                    ),
-                  ),
-                  SizedBox(height: 28.h),
-                  Padding(
-                    padding: EdgeInsets.only(left: 23.w, right: 23.w),
-                    child: SizedBox(
-                      height: 40.h,
-                      width: 312.w,
-                      child: TextFormField(
-                        controller: _emailController,
-                        decoration: customInputDecoration(
-                          hintText: "ইমেইল বা মোবাইল নাম্বার",
+              child: Consumer<AuthServiceProvider>(
+                builder: (context, ref, _) {
+                  return Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SizedBox(height: 35.h),
+                      Container(
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Color(0xffDEFFDE),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Image.asset(
+                            "assets/images/logobig.png",
+                            height: 90.h,
+                            width: 90.w,
+                          ),
                         ),
                       ),
-                    ),
-                  ),
-                  SizedBox(height: 24.h),
-                  Padding(
-                    padding: EdgeInsets.only(left: 23.w, right: 23.w),
-                    child: SizedBox(
-                      height: 40.h,
-                      width: 312.w,
-                      child: TextFormField(
-                        controller: _passwordController,
-                        decoration: customInputDecoration(
-                          hintText: "পাসওয়ার্ড",
+                      SizedBox(height: 38.h),
+                      Text(
+                        "লগইন করুন",
+                        style: TextStyle(
+                          fontSize: 24.sp,
+                          fontWeight: FontWeight.w700,
+                          color: Color(0xff008000),
                         ),
                       ),
-                    ),
-                  ),
-                  SizedBox(height: 24.h),
-                  Utils.mybutton(
-                    text: "লগইন",
-                    onTap: () => _login(context),
-
-                    // context.go(RouteName.HomeScreen);
-                  ),
-
-                  TextButton(
-                    onPressed: () {
-                      context.go(RouteName.SignUpScreen);
-                    },
-                    child: Text(
-                      "অথবা একাউন্ট তৈরী করুন",
-                      style: TextStyle(
-                        fontSize: 12.sp,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xff008000),
-                        decoration: TextDecoration.underline,
+                      SizedBox(height: 28.h),
+                      Padding(
+                        padding: EdgeInsets.only(left: 23.w, right: 23.w),
+                        child: SizedBox(
+                          height: 40.h,
+                          width: 312.w,
+                          child: TextFormField(
+                            controller: _emailController,
+                            decoration: customInputDecoration(
+                              hintText: "ইমেইল বা মোবাইল নাম্বার",
+                            ),
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                  Expanded(child: SizedBox(height: 24.h)),
-                ],
+                      SizedBox(height: 24.h),
+                      Padding(
+                        padding: EdgeInsets.only(left: 23.w, right: 23.w),
+                        child: SizedBox(
+                          height: 40.h,
+                          width: 312.w,
+                          child: TextFormField(
+                            controller: _passwordController,
+                            decoration: customInputDecoration(
+                              hintText: "পাসওয়ার্ড",
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 24.h),
+                      ref.isLoading
+                          ? CircularProgressIndicator(color: Color(0xff008000))
+                          : Utils.mybutton(
+                            text: "লগইন",
+                            onTap: () => _login(context),
+                          ),
+
+                      TextButton(
+                        onPressed: () {
+                          context.go(RouteName.SignUpScreen);
+                        },
+                        child: Text(
+                          "অথবা একাউন্ট তৈরী করুন",
+                          style: TextStyle(
+                            fontSize: 12.sp,
+                            fontWeight: FontWeight.w400,
+                            color: Color(0xff008000),
+                            decoration: TextDecoration.underline,
+                          ),
+                        ),
+                      ),
+                      Expanded(child: SizedBox(height: 24.h)),
+                    ],
+                  );
+                },
               ),
             ),
           ),
