@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mango_leaf_disease/firebase_options.dart';
 import 'package:mango_leaf_disease/routes/route_configs.dart';
+import 'package:mango_leaf_disease/view_model/auth_provider.dart';
 import 'package:mango_leaf_disease/view_model/imagePicker_provider.dart';
 import 'package:mango_leaf_disease/view_model/symtom_provider.dart';
 import 'package:provider/provider.dart';
@@ -28,6 +29,9 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<SymtomProvider>(create: (_) => SymtomProvider()),
+        ChangeNotifierProvider<AuthServiceProvider>(
+          create: (_) => AuthServiceProvider(),
+        ),
         ChangeNotifierProvider<ImagepickerProvider>(
           create: (_) => ImagepickerProvider(),
         ),

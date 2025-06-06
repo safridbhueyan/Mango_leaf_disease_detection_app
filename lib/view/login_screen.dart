@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -5,9 +6,47 @@ import 'package:mango_leaf_disease/routes/route_names.dart';
 import 'package:mango_leaf_disease/utils/utils.dart';
 
 import 'package:mango_leaf_disease/view/widget/inputdecoration.dart';
+import 'package:mango_leaf_disease/view_model/auth_provider.dart';
+import 'package:provider/provider.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
+  void _login(BuildContext context) async {
+    final authProvider = Provider.of<AuthServiceProvider>(
+      context,
+      listen: false,
+    );
+    final email = _emailController.text.trim();
+    final password = _passwordController.text;
+
+    if (email.isEmpty || password.isEmpty) {
+      Utils.showSnackbar(context, "সব তথ্য দিন");
+      return;
+    }
+
+    try {
+      await authProvider.loginEmailPassword(email, password);
+      context.go(RouteName.HomeScreen);
+    } catch (e) {
+      Utils.showSnackbar(context, "লগইন ব্যর্থ: ${e.toString()}");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -85,6 +124,7 @@ class LoginScreen extends StatelessWidget {
                       height: 40.h,
                       width: 312.w,
                       child: TextFormField(
+                        controller: _emailController,
                         decoration: customInputDecoration(
                           hintText: "ইমেইল বা মোবাইল নাম্বার",
                         ),
@@ -98,6 +138,7 @@ class LoginScreen extends StatelessWidget {
                       height: 40.h,
                       width: 312.w,
                       child: TextFormField(
+                        controller: _passwordController,
                         decoration: customInputDecoration(
                           hintText: "পাসওয়ার্ড",
                         ),
@@ -107,9 +148,9 @@ class LoginScreen extends StatelessWidget {
                   SizedBox(height: 24.h),
                   Utils.mybutton(
                     text: "লগইন",
-                    onTap: () {
-                      context.go(RouteName.HomeScreen);
-                    },
+                    onTap: () => _login(context),
+
+                    // context.go(RouteName.HomeScreen);
                   ),
 
                   TextButton(

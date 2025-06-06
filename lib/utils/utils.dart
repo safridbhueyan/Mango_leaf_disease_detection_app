@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -42,5 +43,23 @@ class Utils {
         ),
       ),
     );
+  }
+
+  static void showSnackbar(
+    BuildContext context,
+    String message, {
+    Color backgroundColor = const Color(0xff90EE90),
+    Duration duration = const Duration(seconds: 2),
+  }) {
+    final snackBar = SnackBar(
+      content: Text(message, style: TextStyle(color: Colors.black54)),
+      backgroundColor: backgroundColor,
+      duration: duration,
+      behavior: SnackBarBehavior.floating,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
+      margin: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
+    );
+
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 }
