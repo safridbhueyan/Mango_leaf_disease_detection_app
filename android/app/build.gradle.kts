@@ -33,7 +33,9 @@ android {
         versionName = "1.0"
         ndkVersion = "27.0.12077973"
     }
-
+ androidResources {
+    noCompress += listOf("tflite", "lite")
+}
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
@@ -41,6 +43,10 @@ android {
             signingConfig = signingConfigs.getByName("debug")
         }
     }
+}
+dependencies {
+    implementation("org.tensorflow:tensorflow-lite:2.14.0")
+    implementation("org.tensorflow:tensorflow-lite-gpu:2.14.0")
 }
 
 flutter {
