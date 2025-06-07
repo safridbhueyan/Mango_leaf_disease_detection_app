@@ -7,4 +7,5 @@ class RouteName {
   static const String AboutusScreen = '/AboutusScreen';
   static const String ProfileScreen = '/ProfileScreen';
   static const String PickimageScreen = '/PickimageScreen';
+  static const String authGate = '/AuthGate';
 }

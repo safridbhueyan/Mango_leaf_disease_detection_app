@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mango_leaf_disease/routes/route_names.dart';
 import 'package:mango_leaf_disease/utils/utils.dart';
+import 'package:mango_leaf_disease/view_model/auth_provider.dart';
+import 'package:provider/provider.dart';
 
 class Customdrawer extends StatelessWidget {
   const Customdrawer({super.key});
@@ -126,28 +128,33 @@ class Customdrawer extends StatelessWidget {
             ),
           ),
           Spacer(),
-          GestureDetector(
-            onTap: () {
-              context.pushNamed(RouteName.LoginScreen);
-              Navigator.pop(context);
-            },
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(26.r),
-                border: Border.all(width: 2, color: Colors.black54),
-              ),
-              child: Padding(
-                padding: EdgeInsets.all(10.0),
-                child: Text(
-                  "লগআউট",
-                  style: TextStyle(
-                    fontSize: 17.sp,
-                    fontWeight: FontWeight.w500,
-                    color: Color(0xff000000),
+          Consumer<AuthServiceProvider>(
+            builder: (context, ref, _) {
+              return GestureDetector(
+                onTap: () {
+                  ref.logout();
+                  context.pushNamed(RouteName.LoginScreen);
+                  Navigator.pop(context);
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(26.r),
+                    border: Border.all(width: 2, color: Colors.black54),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.all(10.0),
+                    child: Text(
+                      "লগআউট",
+                      style: TextStyle(
+                        fontSize: 17.sp,
+                        fontWeight: FontWeight.w500,
+                        color: Color(0xff000000),
+                      ),
+                    ),
                   ),
                 ),
-              ),
-            ),
+              );
+            },
           ),
           SizedBox(height: 70.h),
         ],

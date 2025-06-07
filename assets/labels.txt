@@ -1,0 +1,7 @@
+0 Anthracnose
+1 Bacterial Canker
+2 Gall_Midge
+3 Healthy
+4 Late_blight
+5 Powdery Mildew
+6 Sooty_Mould

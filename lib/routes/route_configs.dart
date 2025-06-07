@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mango_leaf_disease/routes/route_names.dart';
+import 'package:mango_leaf_disease/service/auth_gate.dart';
 import 'package:mango_leaf_disease/view/aboutUs_screen.dart';
 import 'package:mango_leaf_disease/view/disease_screen.dart';
 import 'package:mango_leaf_disease/view/home_screen.dart';
@@ -11,7 +12,7 @@ import 'package:mango_leaf_disease/view/sign_up_screen.dart';
 
 class RouteConfig {
   GoRouter goRouter = GoRouter(
-    initialLocation: RouteName.LoginScreen,
+    initialLocation: RouteName.authGate,
 
     routes: [
       GoRoute(
@@ -19,6 +20,13 @@ class RouteConfig {
         path: RouteName.SignUpScreen,
         pageBuilder: (context, state) {
           return const MaterialPage(child: SignUpScreen());
+        },
+      ),
+      GoRoute(
+        name: RouteName.authGate,
+        path: RouteName.authGate,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: AuthGate());
         },
       ),
       GoRoute(

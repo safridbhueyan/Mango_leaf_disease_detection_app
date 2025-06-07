@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mango_leaf_disease/detection_model/tf_lite_service.dart';
 import 'package:mango_leaf_disease/firebase_options.dart';
 import 'package:mango_leaf_disease/routes/route_configs.dart';
 import 'package:mango_leaf_disease/view_model/auth_provider.dart';
@@ -14,6 +15,7 @@ void main() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   await ScreenUtil.ensureScreenSize();
+  await TfliteService.loadModel();
 
   runApp(const MyApp());
 }

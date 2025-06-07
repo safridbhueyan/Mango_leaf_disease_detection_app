@@ -43,6 +43,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
     final password = _passwordController.text.trim();
     final confrimPassword = _confirmPasswordController.text.trim();
 
+    if (email.isEmpty ||
+        password.isEmpty ||
+        name.isEmpty ||
+        address.isEmpty ||
+        confrimPassword.isEmpty) {
+      Utils.showSnackbar(context, "সব তথ্য দিন");
+      return;
+    }
+
     if (password != confrimPassword) {
       Utils.showSnackbar(context, "পাসওয়ার্ড মিলে নি আবার চেষ্টা করুন");
       return;
@@ -62,10 +71,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         debugPrint("\n\n Signup success. Navigating to login...\n\n");
 
         Utils.showSnackbar(context, "প্রফাইল তৈরি হয়ে গিয়েছে লগইন করুন!");
-        // Future.microtask(() =>
         context.go(RouteName.LoginScreen);
-
-        //  );
       } else {
         Utils.showSnackbar(context, "রেজিস্ট্রেশন ব্যর্থ হয়েছে!");
       }

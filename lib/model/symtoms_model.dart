@@ -1,4 +1,6 @@
 class SymtomsModel {
+  final String rawLabel;
+
   final String title;
   final String subtitle;
   final String discription;
@@ -7,6 +9,7 @@ class SymtomsModel {
   final List<String> resistance;
 
   SymtomsModel({
+    required this.rawLabel,
     required this.title,
     required this.subtitle,
     required this.discription,
@@ -17,6 +20,7 @@ class SymtomsModel {
 
   factory SymtomsModel.fromJson(Map<String, dynamic> json) {
     return SymtomsModel(
+      rawLabel: json['rawLabel'],
       title: json['title'],
       subtitle: json['subtitle'],
       discription: json['discription'],
