@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-InputDecoration customInputDecoration({required String hintText}) {
+InputDecoration customInputDecoration({
+  required String hintText,
+  Widget? sufix,
+}) {
   return InputDecoration(
     focusedBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(30.r),
@@ -21,5 +24,6 @@ InputDecoration customInputDecoration({required String hintText}) {
       fontWeight: FontWeight.w400,
       color: Color(0xff008000),
     ),
+    suffixIcon: sufix ?? null,
   );
 }

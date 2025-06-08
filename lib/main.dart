@@ -7,6 +7,7 @@ import 'package:mango_leaf_disease/firebase_options.dart';
 import 'package:mango_leaf_disease/routes/route_configs.dart';
 import 'package:mango_leaf_disease/view_model/auth_provider.dart';
 import 'package:mango_leaf_disease/view_model/imagePicker_provider.dart';
+import 'package:mango_leaf_disease/view_model/password_provider.dart';
 import 'package:mango_leaf_disease/view_model/symtom_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -31,6 +32,9 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<SymtomProvider>(create: (_) => SymtomProvider()),
+        ChangeNotifierProvider<PasswordProvider>(
+          create: (_) => PasswordProvider(),
+        ),
         ChangeNotifierProvider<AuthServiceProvider>(
           create: (_) => AuthServiceProvider(),
         ),

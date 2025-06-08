@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -7,6 +6,7 @@ import 'package:mango_leaf_disease/utils/utils.dart';
 
 import 'package:mango_leaf_disease/view/widget/inputdecoration.dart';
 import 'package:mango_leaf_disease/view_model/auth_provider.dart';
+import 'package:mango_leaf_disease/view_model/password_provider.dart';
 import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -134,18 +134,41 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       SizedBox(height: 24.h),
-                      Padding(
-                        padding: EdgeInsets.only(left: 23.w, right: 23.w),
-                        child: SizedBox(
-                          height: 40.h,
-                          width: 312.w,
-                          child: TextFormField(
-                            controller: _passwordController,
-                            decoration: customInputDecoration(
-                              hintText: "পাসওয়ার্ড",
+                      Consumer<PasswordProvider>(
+                        builder: (context, ref, _) {
+                          return Padding(
+                            padding: EdgeInsets.only(left: 23.w, right: 23.w),
+                            child: SizedBox(
+                              height: 40.h,
+                              width: 312.w,
+                              child: TextFormField(
+                                controller: _passwordController,
+                                obscureText: ref.isVisible,
+                                decoration: customInputDecoration(
+                                  hintText: "পাসওয়ার্ড",
+
+                                  sufix: GestureDetector(
+                                    onTap: () {
+                                      ref.toggle();
+                                    },
+                                    child:
+                                        ref.isVisible
+                                            ? Icon(
+                                              Icons.visibility_off,
+                                              color: Color(0xff008000),
+                                              size: 24,
+                                            )
+                                            : Icon(
+                                              Icons.visibility,
+                                              color: Color(0xff008000),
+                                              size: 24,
+                                            ),
+                                  ),
+                                ),
+                              ),
                             ),
-                          ),
-                        ),
+                          );
+                        },
                       ),
                       SizedBox(height: 24.h),
                       ref.isLoading
