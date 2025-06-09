@@ -8,6 +8,7 @@ import 'package:mango_leaf_disease/view/home_screen.dart';
 import 'package:mango_leaf_disease/view/login_screen.dart';
 import 'package:mango_leaf_disease/view/pickImage_screen.dart';
 import 'package:mango_leaf_disease/view/profile_screen.dart';
+import 'package:mango_leaf_disease/view/setttings_screen.dart';
 import 'package:mango_leaf_disease/view/sign_up_screen.dart';
 
 class RouteConfig {
@@ -20,6 +21,13 @@ class RouteConfig {
         path: RouteName.SignUpScreen,
         pageBuilder: (context, state) {
           return const MaterialPage(child: SignUpScreen());
+        },
+      ),
+      GoRoute(
+        name: RouteName.settings,
+        path: RouteName.settings,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: SetttingsScreen());
         },
       ),
       GoRoute(

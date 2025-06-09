@@ -9,6 +9,7 @@ import 'package:mango_leaf_disease/view_model/auth_provider.dart';
 import 'package:mango_leaf_disease/view_model/imagePicker_provider.dart';
 import 'package:mango_leaf_disease/view_model/password_provider.dart';
 import 'package:mango_leaf_disease/view_model/symtom_provider.dart';
+import 'package:mango_leaf_disease/view_model/user_provider.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<SymtomProvider>(create: (_) => SymtomProvider()),
+        ChangeNotifierProvider<UserProvider>(create: (_) => UserProvider()),
         ChangeNotifierProvider<PasswordProvider>(
           create: (_) => PasswordProvider(),
         ),

@@ -8,4 +8,5 @@ class RouteName {
   static const String ProfileScreen = '/ProfileScreen';
   static const String PickimageScreen = '/PickimageScreen';
   static const String authGate = '/AuthGate';
+  static const String settings = '/SetttingsScreen';
 }

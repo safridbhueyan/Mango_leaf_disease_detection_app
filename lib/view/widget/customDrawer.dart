@@ -127,6 +127,31 @@ class Customdrawer extends StatelessWidget {
               ),
             ),
           ),
+          SizedBox(height: 20.h),
+          GestureDetector(
+            onTap: () {
+              context.pushNamed(RouteName.settings);
+              Navigator.pop(context);
+            },
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(26.r),
+                border: Border.all(width: 2, color: Colors.black54),
+              ),
+              child: Padding(
+                padding: EdgeInsets.all(10.0),
+
+                child: Text(
+                  "সেটিংস",
+                  style: TextStyle(
+                    fontSize: 17.sp,
+                    fontWeight: FontWeight.w500,
+                    color: Color(0xff000000),
+                  ),
+                ),
+              ),
+            ),
+          ),
           Spacer(),
           Consumer<AuthServiceProvider>(
             builder: (context, ref, _) {

@@ -55,4 +55,20 @@ class ImagepickerProvider with ChangeNotifier {
     }
     return rawLabel;
   }
+
+  XFile? _pickedProfile;
+  XFile? get pickedprofile => _pickedProfile;
+  Future<bool> galleryProfilePick() async {
+    try {
+      final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
+      if (pickedFile != null) {
+        _pickedProfile = pickedFile;
+        notifyListeners();
+        return true;
+      }
+    } catch (e) {
+      debugPrint("Gallery pick error: $e");
+    }
+    return false;
+  }
 }
